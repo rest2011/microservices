@@ -18,7 +18,10 @@ import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-@WebMvcTest(UserController.class)
+@WebMvcTest(value = UserController.class, properties = {
+        "spring.cloud.config.enabled=false",
+        "eureka.client.enabled=false"
+})
 class UserControllerTest {
 
     @Autowired
