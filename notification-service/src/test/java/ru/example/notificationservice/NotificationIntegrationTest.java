@@ -41,21 +41,7 @@ import static org.junit.jupiter.api.Assertions.*;
         properties = {
                 "spring.mail.host=localhost",
                 "spring.mail.port=3025",
-                "spring.kafka.bootstrap-servers=${spring.embedded.kafka.brokers}",
-                "spring.cloud.config.enabled=false",
-                "eureka.client.enabled=false",
-                // Возвращаем настройки десериализатора с обработкой ошибок:
-                "spring.kafka.consumer.group-id=notification-group",
-                "spring.kafka.consumer.auto-offset-reset=earliest",
-                "spring.kafka.consumer.key-deserializer=org.springframework.kafka.support.serializer.ErrorHandlingDeserializer",
-                "spring.kafka.consumer.value-deserializer=org.springframework.kafka.support.serializer.ErrorHandlingDeserializer",
-                "spring.kafka.consumer.properties.spring.deserializer.key.delegate.class=org.apache.kafka.common.serialization.StringDeserializer",
-                "spring.kafka.consumer.properties.spring.deserializer.value.delegate.class=org.springframework.kafka.support.serializer.JsonDeserializer",
-                "spring.kafka.consumer.properties.spring.json.value.default.type=ru.example.notificationservice.dto.UserEventDto",
-                "spring.kafka.consumer.properties.spring.json.trusted.packages=*",
-                // Возвращаем настройки продюсера для DLT:
-                "spring.kafka.producer.key-serializer=org.apache.kafka.common.serialization.StringSerializer",
-                "spring.kafka.producer.value-serializer=org.springframework.kafka.support.serializer.JsonSerializer"
+                "spring.kafka.bootstrap-servers=${spring.embedded.kafka.brokers}"
         }
 )
 @EmbeddedKafka(partitions = 1, topics = {"user-events", "user-events-dlt"})
