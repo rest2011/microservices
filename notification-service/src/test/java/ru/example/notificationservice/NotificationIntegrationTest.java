@@ -41,7 +41,9 @@ import static org.junit.jupiter.api.Assertions.*;
         properties = {
                 "spring.mail.host=localhost",
                 "spring.mail.port=3025",
-                "spring.kafka.bootstrap-servers=${spring.embedded.kafka.brokers}"
+                "spring.kafka.bootstrap-servers=${spring.embedded.kafka.brokers}",
+                "spring.cloud.config.enabled=false",
+                "eureka.client.enabled=false"
         }
 )
 @EmbeddedKafka(partitions = 1, topics = {"user-events", "user-events-dlt"})
